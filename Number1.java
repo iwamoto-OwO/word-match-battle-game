@@ -1,14 +1,12 @@
-package kadai14;
+package program;
 
-
-import java.util.StringJoiner;
 
 public class Number1 {
 
     boolean isEnd = false;
     public String[] hitJudge(String correctAnswer, String cliantWord) {
         //System.out.println("入力文字は" + cliantWord);
-        String[] returnHit; // �q�b�g�����̌��ʂ��i�[����
+        String[] returnHit; // ����
         returnHit = new String[cliantWord.length()];
         int hitCount = 0;
 
@@ -22,17 +20,18 @@ public class Number1 {
             if (correctSplit[i] == splitCliant[i]) {
                 hitCount++;
                 returnHit[i]= "hit";  //�q�b�g����
-            } else if ((correctSplit[i] != splitCliant[i]) &&
-                    ((correctSplit[0] == splitCliant[i])
-                    || (correctSplit[1] == splitCliant[i])
-                    || (correctSplit[2] == splitCliant[i])
-                    || (correctSplit[3] == splitCliant[i])
-                    || (correctSplit[4] == splitCliant[i]))
-            )
-            {
-                returnHit[i]= "blow"; //�u���[����
-            }else {
-                returnHit[i]= "noblow";  // �m�[�u���[����
+            } else {
+                boolean blow = false;
+                for(int j = 0; j < correctSplit.length; j++){
+                    if(correctSplit[j] == splitCliant[i]){
+                        returnHit[i]= "blow"; //�u���[����
+                        blow = true;
+                        break;
+                    }
+                }
+                if(!blow){
+                    returnHit[i]= "noblow";  // �m�[�u���[����
+                }
             }
 
 

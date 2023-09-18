@@ -1,4 +1,4 @@
-package kadai14;
+package program;
 
 import javax.swing.*;
 import java.awt.*;
@@ -122,9 +122,27 @@ class Finishpaint extends JPanel {
             g.drawString(wordSplit[i],width/2+i*60-(60*word.length()-40)/2,40);
         }
         g.setFont(new Font("MS ゴシック", Font.PLAIN, 40));
-        g.setColor(new Color(0, 0, 0, 50));
+        g.setColor(new Color(0, 0, 0, 75));
         g.fillRect(0, 0, width, height);
         g.setColor(Color.white);
         g.drawString(mes,width/2-mes.length()*20,height/2-40);
+    }
+}
+
+
+class MiddlePaint extends JPanel {
+
+    int width=215;
+    int height=190;
+    String mes  = "相手のターン";
+    public MiddlePaint() {
+        JPanel middle = new JPanel();
+    }
+    public void paintComponent(Graphics g) {
+        g.setFont(new Font("MS ゴシック", Font.PLAIN, 40));
+        g.setColor(Color.orange);
+        g.fillRect(width+15, height, 260,50);
+        g.setColor(Color.white);
+        g.drawString(mes, width+28, height+40);
     }
 }
